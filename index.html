@@ -1,0 +1,36 @@
+<html>
+<body>
+	<div id="title">
+	<h1>Welcome to sofia's webpage</h1>
+	<p>This is where dreams come through</p>
+	<button onclick="makeDreamComeThrough()">click here</button>
+	</div>
+</body>
+</html>
+
+<style>
+	h1{
+		color: Blue;
+	}
+	button:hover{
+		background-color:red;
+		cursor:pointer;
+		font-size:20px;
+	}
+	body{
+		background-image: url("https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?cs=srgb&dl=cascade-clouds-cool-wallpaper-210186.jpg&fm=jpg");
+	}
+	#title{
+		width:100%;
+		text-align: center;
+		margin-top: 50px;
+	}
+</style>
+
+<script>
+	function makeDreamComeThrough() {
+		alert("Dream has come througgh")
+		document.body.style.background = "url(https://tse2.mm.bing.net/th/id/OIP.GfXiV9Ev1s1NPCobIC7WwAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3)"
+		document.getElementById("title").style.visibility = "hidden";
+	}
+</script>
