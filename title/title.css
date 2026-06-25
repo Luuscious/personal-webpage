@@ -1,17 +1,27 @@
-h1{
-		color: Blue;
-	}
+:root{
+    --titleSectionPrimaryColor: white;
+}
 
-button:hover{
-		background-color:red;
-		cursor:pointer;
-		font-size:20px;
-	}
-    
 #title{
 		text-align: center;
-        padding-top: 200px;
+        padding: 200px 0 0 400px;
         background-image: url(../Images/Surface.jpg);
+        color: var(--titleSectionPrimaryColor);
 	}
 
+    .title-section-button{
+        color: var(--titleSectionPrimaryColor);
+        border: solid var(--titleSectionPrimaryColor);
+        padding: 15px 20px;
+        background-color: transparent;
+        border-radius: 5px;
+    }
+
+.title-section-button:hover{
+		cursor:pointer;
+	}
+
+
     
+
+
