@@ -1,17 +1,23 @@
 :root{
     --titleSectionPrimaryColor: white;
+    --titleSectionSecondaryColor: rgba(0,0,0,0.5);
 }
 
 #title{
+        max-width: 100vw;
 		text-align: center;
-        padding: 200px 0 0 400px;
-        background-image: url(../Images/Surface.jpg);
+        padding-top: 220px;
+        text-shadow: 0 2px 8px var(--titleSectionSecondaryColor);
         color: var(--titleSectionPrimaryColor);
+        background-image: url(../Images/baby.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
 	}
 
     .title-section-button{
-        color: var(--titleSectionPrimaryColor);
-        border: solid var(--titleSectionPrimaryColor);
+        color: var(--titleSectionSecondaryColor);
+        border: solid var(--titleSectionSecondaryColor);
         padding: 15px 20px;
         background-color: transparent;
         border-radius: 5px;
@@ -19,7 +25,10 @@
 
 .title-section-button:hover{
 		cursor:pointer;
+        background-color: var(--titleSectionSecondaryColor);
+        color: var(--titleSectionPrimaryColor);
 	}
+
 
 
     
