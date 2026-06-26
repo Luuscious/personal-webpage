@@ -10,9 +10,18 @@
 .about-me-icon{
     font-size: 25px;
     margin-top: 45px;
+    margin-bottom: 25px;
+}
+
+.icon{
+    color: black;
 }
 
 .icon:hover{
     cursor: pointer;
     color: var(--titleSectionSecondaryColor);
+}
+
+.about-me-download-link > a{
+    color: black;
 }
