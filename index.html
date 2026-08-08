@@ -36,7 +36,20 @@
 	<div class="main-section" id="craps-game">
 		<h1 class="craps-game-title">Craps Casino Game</h1>
 		<div class="craps-game-container">
-			
+			<div id="craps-registration-pane">
+				<div>
+					Enter your Username:
+				</div>
+				<div>
+					<input class="craps-registration-input" type="text" id="craps-username-input">
+				</div>
+				<div class="craps-registration-continue" onclick="registerCrapsPlayer()">
+					continue
+				</div>
+			</div>
+			<div id="craps-main-section">
+				MAIN SECTION HERE
+			</div>
 		</div>
 	</div>
 </body>
@@ -76,11 +89,13 @@
 
 </style>
 
-
+<script src="crapsgame/crapsgame.js"></script>
 <script>
 	function makeDreamComeThrough() {
 		alert("Dream has come througgh")
 		document.body.style.background = "url(https://tse2.mm.bing.net/th/id/OIP.GfXiV9Ev1s1NPCobIC7WwAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3)"
 		document.getElementById("title").style.visibility = "hidden";
 	}
+
+	
 </script>

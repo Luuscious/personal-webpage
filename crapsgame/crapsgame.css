@@ -13,8 +13,42 @@
     width: min(830px, 80vw);
     height: min(450px, 57vw);
     border: solid white 2px;
-    margin: 100px auto 0 auto;
-    background-image: url(../Images/crapstable.jpg);
+    margin: 120px auto 0 auto;
+    background-image: url(../Images/crapsgametable.jpg);
     background-size: cover;
     
+}
+
+#craps-registration-pane{
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.craps-registration-input{
+    background: none;
+    border: none;
+    border-bottom: solid white 2px;
+    margin-top: 25px;
+    color: white;
+    text-align: center;
+}
+
+.craps-registration-input:focus{
+    outline: none;
+}
+
+.craps-registration-continue{
+    margin-top: 25px;
+    font-size: 12px;
+}
+
+.craps-registration-continue:hover{
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#craps-main-section{
+    display: none;
 }
