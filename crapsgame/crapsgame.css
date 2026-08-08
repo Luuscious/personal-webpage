@@ -1,0 +1,20 @@
+#craps-game{
+    background-image: url('../Images/crapsgamebg.jpg');
+    background-position: center top;
+    color: white;
+}
+
+.craps-game-title{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.craps-game-container{
+    width: min(830px, 80vw);
+    height: min(450px, 57vw);
+    border: solid white 2px;
+    margin: 100px auto 0 auto;
+    background-image: url(../Images/crapstable.jpg);
+    background-size: cover;
+    
+}
