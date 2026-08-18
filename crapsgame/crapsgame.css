@@ -8,6 +8,7 @@
 #craps-game{
     background-image: url('../Images/crapsgamebg.jpg');
     background-position: center top;
+    background-size: cover;
     color: white;
     padding: 1px;
 }
@@ -32,16 +33,18 @@
 #craps-registration-pane{
     color: whitesmoke;
     text-align: center;
-    margin-top: 50px;
+    margin-top: calc(var(--height-scale) * 0.15);
+    font-size: calc(var(--game-title-size) * 0.5);
 }
 
 .craps-registration-input{
     background: none;
     border: none;
     border-bottom: solid white 2px;
-    margin-top: 25px;
+    margin: calc(var(--height-scale) * 0.05) 0;
     color: white;
     text-align: center;
+    font-size: calc(var(--game-title-size) * 0.5);
 }
 
 .craps-registration-input:focus{
@@ -49,7 +52,6 @@
 }
 
 .craps-registration-continue{
-    margin-top: 25px;
     font-size: 12px;
 }
 
@@ -65,10 +67,11 @@
 
 .craps-main-section-stats{
     text-align: center;
-    margin-top: 70px;
+    font-size: calc(var(--height-scale) * 0.06);
+    margin-top: calc(var(--height-scale) * 0.15);
 }
 
 #craps-stats-money-container{
-    font-size: 60px;
-    margin: 25px 0 5px 0;
+    font-size: calc(var(--height-scale) * 0.3);
+    margin-top: calc(var(--height-scale) * 0.04);
 }
