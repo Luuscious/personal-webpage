@@ -8,7 +8,7 @@ const bets = {
     even: "EVEN",
     odd: "ODD"
 }
-const minimumBet = 50
+const minimumBet = 100
 
 //HTML Element IDs
 const crapsUsernameInput = "craps-username-input"
