@@ -61,79 +61,133 @@
     font-weight: bold;
 }
 
-#craps-main-section{
+#craps-main-section {
     display: none;
     height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-.craps-main-section-stats{
+.craps-main-section-stats {
     text-align: center;
     font-size: calc(var(--height-scale) * 0.06);
-    margin-top: calc(var(--height-scale) * 0.15);
+    margin-top: calc(var(--height-scale) * 0.08);
 }
 
-#craps-stats-money-container{
+#craps-stats-money-container {
     font-size: calc(var(--height-scale) * 0.1);
-    margin-top: calc(var(--height-scale) * 0.04);
+    margin-top: calc(var(--height-scale) * 0.02);
 }
 
-.craps-on-table-container{
-    margin-top: calc(var(--height-scale) * 0.12);
-    font-size: calc(var(--height-scale) * 0.06);
+
+/* DICE / TABLE AREA */
+
+.craps-on-table-container {
+    position: relative;
+    width: 100%;
+    height: calc(var(--height-scale) * 0.38);
+    margin-top: calc(var(--height-scale) * 0.01);
+    overflow: hidden;
     text-align: center;
 }
 
-.craps-round-manager{
+#craps-roll-dice-animation-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#craps-roll-dice-animation-container canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+
+/* ROLL DICE BUTTON */
+
+#dice-container {
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin: calc(var(--height-scale) * 0.02) auto 0;
+    transform: translateY(-30px);}
+
+
+/* RESULT */
+
+#dice-result {
     position: absolute;
-    bottom: 0;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 110;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    display: none;
+}
+
+
+/* ROUND MANAGER */
+
+.craps-round-manager {
+    position: absolute;
+    left: 0;
+    bottom: calc(var(--height-scale) * 0.04);
     width: 100%;
     text-align: center;
-    position: absolute;
-    bottom: calc(var(--height-scale) * 0.04);
     font-size: calc(var(--height-scale) * 0.06);
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.craps-roll-dice-container{
+.craps-roll-dice-container {
     width: fit-content;
     margin: 0 auto;
+    color: white;
 }
 
-.craps-roll-dice-container:hover{
+.craps-roll-dice-container:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.craps-betting-grid{
+.craps-betting-grid {
     display: grid;
     grid-template-columns: 33% auto 33%;
     width: 80%;
     margin: 0 auto;
     border: solid white 2px;
+    box-sizing: border-box;
 }
 
-.craps-bet-button{
+.craps-bet-button {
     padding: calc(var(--height-scale) * 0.04);
-}
-
-.craps-bet-button{
     cursor: pointer;
     font-weight: bold;
 }
 
-.craps-bet-amount-container{
+.craps-bet-amount-container {
     padding: calc(var(--height-scale) * 0.04);
     border-right: solid white 2px;
     border-left: solid white 2px;
     background: rgba(0, 0, 0, 0.5);
 }
 
-#craps-user-bet-amount{
+#craps-user-bet-amount {
     margin: 0 calc(var(--height-scale) * 0.04);
 }
-.craps-user-bet-amount-change{
+
+.craps-user-bet-amount-change {
     cursor: pointer;
     font-weight: bold;
 }

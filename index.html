@@ -61,7 +61,13 @@
 					</div>
 				</div>
 				<div class="craps-on-table-container">
-					<div class="craps-roll-dice-container no-select">Roll dice <i class="fa-solid fa-dice"></i></div>
+					<div id="craps-roll-dice-animation-container"></div>
+					<div id="dice-result">
+						Result: <span id="dice-result-value"></span>
+					</div>
+				</div>
+				<div id="dice-container" class="craps-roll-dice-container no-select">
+					Roll dice <i class="fa-solid fa-dice"></i>
 				</div>
 				<div class="craps-round-manager no-select">
 					<div class="craps-betting-grid no-select">
@@ -119,6 +125,7 @@
 </style>
 
 <script src="crapsgame/crapsgame.js"></script>
+<script type="module" src="crapsgame/script.js"></script>
 <script>
 	function makeDreamComeThrough() {
 		alert("Dream has come througgh")

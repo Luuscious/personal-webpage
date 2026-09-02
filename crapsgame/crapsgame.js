@@ -44,8 +44,15 @@ function removeRegistrationPane(){
     } 
 
 function showMainGameSection(){
-            document.getElementById(crapsMainSection).style.display = "block"
-    }
+    document.getElementById(crapsMainSection).style.display = "block";
+
+    // Give the browser a moment to calculate the new dimensions
+    requestAnimationFrame(() => {
+        if (typeof window.resizeDiceRenderer === "function") {
+            window.resizeDiceRenderer();
+        }
+    });
+}
 
 function setUpFirstRound(){
             document.getElementById(crapsStatsUsername).innerHTML = crapsUsername
@@ -87,10 +94,74 @@ function increaseBet(){
 }
 
 function decreaseBet(){
-            setBetAmount(Math.max(currentBetAmount - minimumBet, currentMoney))
+            setBetAmount(Math.max(currentBetAmount - minimumBet, minimumBet))
 }
 
 function setBetAmount(betAmount){
     currentBetAmount = betAmount
     document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount
+}
+
+window.addEventListener("diceRolled", function(event) {
+
+    const dice = event.detail.dice;
+    const total = event.detail.total;
+
+    processDiceRoll(dice, total);
+
+    // Bring Roll Dice button back
+    const rollButton = document.getElementById("dice-container");
+
+    if (rollButton) {
+        rollButton.style.display = "block";
+    }
+});
+
+function processDiceRoll(dice, total) {
+
+    const die1 = dice[0]
+    const die2 = dice[1]
+
+    console.log("Die 1:", die1)
+    console.log("Die 2:", die2)
+    console.log("Total:", total)
+
+    const result = document.getElementById("dice-result");
+    const resultValue = document.getElementById("dice-result-value");
+
+    if (result && resultValue) {
+        resultValue.innerHTML = `${die1} + ${die2} = ${total}`;
+        result.style.display = "block";
+    }
+}
+
+function rollGameDice() {
+
+    console.log("Roll Dice button clicked!");
+
+    const rollButton = document.getElementById("dice-container");
+
+    if (typeof window.roll3DDice === "function") {
+
+        console.log("3D dice function found!");
+
+        // Hide Roll Dice button
+        rollButton.style.display = "none";
+
+        // Roll the dice
+        window.roll3DDice();
+
+    } else {
+
+        console.error("3D dice have not loaded yet.");
+
+    }
+}
+
+const rollDiceButton = document.getElementById("dice-container");
+
+if (rollDiceButton) {
+    rollDiceButton.addEventListener("click", rollGameDice);
+} else {
+    console.error("Roll Dice button not found!");
 }
