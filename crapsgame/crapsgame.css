@@ -117,8 +117,10 @@
     display: block;
     width: fit-content;
     margin: calc(var(--height-scale) * 0.02) auto 0;
-    transform: translateY(-30px);}
-
+    transform: translateY(-30px);
+    font-size: calc(var(--height-scale) * 0.055);
+}
+    
 
 /* RESULT */
 
@@ -128,10 +130,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 110;
-
-    font-size: 12px;
-    font-weight: bold;
-
+    font-size: calc(var(--height-scale) * 0.045);
     display: none;
 }
 
