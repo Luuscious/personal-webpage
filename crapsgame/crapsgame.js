@@ -305,3 +305,55 @@ function startNextRound() {
 
     console.log("Next round started")
 }
+
+function exitCrapsGame() {
+
+    // Show final game summary
+    alert(
+        "Game Over!\n\n" +
+        "Total Money: $" + currentMoney + "\n" +
+        "Rounds Played: " + currentRounds
+    )
+
+    // Close the main game section
+    document.getElementById(crapsMainSection).style.display = "none"
+
+    // Open registration pane
+    document.getElementById(crapsRegistrationPane).style.display = "block"
+
+    // Clear username
+    crapsUsername = ""
+    document.getElementById(crapsUsernameInput).value = ""
+
+    // Reset game data
+    currentMoney = startingMoney
+    currentRounds = startingRounds
+    currentBet = bets.even
+    currentBetAmount = minimumBet
+
+    // Reset game states
+    canChangeBet = true
+    isRoundInProgress = false
+
+    // Reset displayed stats
+    setMoney(currentMoney)
+    setRounds(currentRounds)
+
+    // Reset betting amount display
+    document.getElementById(crapsUserBetAmount).innerHTML = "$" + minimumBet
+
+    // Reset betting selection
+    document.getElementById("EVEN").style.backgroundColor = "red"
+    document.getElementById("ODD").style.backgroundColor = "transparent"
+
+    // Hide round finish grid
+    document.getElementById("craps-round-finish-grid").style.display = "none"
+
+    // Show betting grid
+    document.getElementById("craps-betting-grid").style.display = "grid"
+
+    // Show Roll Dice button
+    document.getElementById("dice-container").style.display = "block"
+
+    console.log("Craps game completely reset.")
+}
