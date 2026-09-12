@@ -64,14 +64,13 @@
 					<div id="craps-roll-dice-animation-container"></div>
 					<div id="dice-result">
 						<span id="dice-result-value"></span>
-						<div id="craps-round-result"></div>
 					</div>
 				</div>
 				<div id="dice-container" class="craps-roll-dice-container no-select">
 					Roll dice <i class="fa-solid fa-dice"></i>
 				</div>
 				<div class="craps-round-manager no-select">
-					<div class="craps-betting-grid no-select">
+					<div class="craps-betting-grid no-select" id="craps-betting-grid">
 						<div class="craps-bet-button" id="EVEN" onclick="betEven()">
 							EVEN
 						</div>
@@ -84,6 +83,22 @@
 							ODD
 						</div>
 					</div>
+
+					<!-- Round finish grid -->
+					<div class="craps-round-finish-grid no-select" id="craps-round-finish-grid">
+
+						<div class="craps-round-finish-button" id="craps-next-round-button" onclick="startNextRound()">
+							Next round
+						</div>
+
+						<div id="craps-round-result"></div>
+
+						<div class="craps-round-finish-button" onclick="exitCrapsGame()">
+							Exit game
+						</div>
+
+					</div>
+
 				</div>
 			</div>
 		</div>

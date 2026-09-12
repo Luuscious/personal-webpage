@@ -118,30 +118,26 @@ function decreaseBet(){
 }
 
 function setBetAmount(betAmount){
-    if(canChangeBet){
-        currentBetAmount = betAmount
-    document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount
+
+    if (!canChangeBet) {
+        return
     }
+
+    currentBetAmount = betAmount
+
+    document.getElementById(crapsUserBetAmount).innerHTML = "$" + betAmount
 }
 
 window.addEventListener("diceRolled", function(event) {
 
-    const dice = event.detail.dice;
-    const total = event.detail.total;
+    const dice = event.detail.dice
+    const total = event.detail.total
 
-    // Process win/loss and update money
-    processDiceRoll(dice, total);
+    processDiceRoll(dice, total)
 
-    // Round is finished
-    isRoundInProgress = false;
+    isRoundInProgress = false
 
-    // Bring Roll Dice button back
-    const rollButton = document.getElementById("dice-container");
-
-    if (rollButton) {
-        rollButton.style.display = "block";
-    }
-});
+})
 
 function processDiceRoll(dice, total) {
 
@@ -196,8 +192,8 @@ function rollGameDice() {
     if (typeof window.roll3DDice === "function") {
         console.log("3D dice function found!");
 
-        // Lock the round
         isRoundInProgress = true;
+        canChangeBet = false;
 
         // Hide Roll Dice button
         rollButton.style.display = "none";
@@ -220,18 +216,92 @@ if (rollDiceButton) {
 
 function showRoundResult(playerWon) {
 
-    const result = document.getElementById("dice-result")
     const roundResult = document.getElementById("craps-round-result")
+    const nextRoundButton = document.getElementById("craps-next-round-button")
 
-    if (!result || !roundResult) {
+    if (!roundResult) {
+        console.error("craps-round-result element not found!")
         return
     }
 
-    if (playerWon) {
-        roundResult.innerHTML = `YOU WON! +$${currentBetAmount}`
+    console.log("Showing round result...")
+    console.log("Player won:", playerWon)
+    console.log("Bet amount:", currentBetAmount)
+
+    if (currentMoney <= 0) {
+
+        roundResult.textContent = "You are out of money"
+
+        if (nextRoundButton) {
+            nextRoundButton.style.display = "none"
+        }
+
+    } else if (playerWon) {
+
+        roundResult.textContent = `You win +$${currentBetAmount}`
+
+        if (nextRoundButton) {
+            nextRoundButton.style.display = "flex"
+        }
+
     } else {
-        roundResult.innerHTML = `YOU LOST! -$${currentBetAmount}`
+
+        roundResult.textContent = `You lose -$${currentBetAmount}`
+
+        if (nextRoundButton) {
+            nextRoundButton.style.display = "flex"
+        }
     }
 
-    result.style.display = "block"
+    console.log("Round result text:", roundResult.textContent)
+
+    showRoundFinishGrid()
+}
+
+function showRoundFinishGrid() {
+
+    const bettingGrid = document.getElementById("craps-betting-grid")
+    const roundFinishGrid = document.getElementById("craps-round-finish-grid")
+
+    if (!bettingGrid || !roundFinishGrid) {
+        console.error("Round grids not found!")
+        return
+    }
+
+    bettingGrid.style.display = "none"
+    roundFinishGrid.style.display = "grid"
+}
+
+function startNextRound() {
+
+    const bettingGrid = document.getElementById("craps-betting-grid")
+    const roundFinishGrid = document.getElementById("craps-round-finish-grid")
+    const rollButton = document.getElementById("dice-container")
+
+    if (!bettingGrid || !roundFinishGrid || !rollButton) {
+        console.error("Could not start next round. Element not found!")
+        return
+    }
+
+    // Unlock betting
+    canChangeBet = true
+    isRoundInProgress = false
+
+    // Hide round finish grid
+    roundFinishGrid.style.display = "none"
+
+    // Show betting grid
+    bettingGrid.style.display = "grid"
+
+    // Show Roll Dice button again
+    rollButton.style.display = "block"
+
+    // Reset bet amount
+    currentBetAmount = minimumBet
+    setBetAmount(currentBetAmount)
+
+    // Default to EVEN
+    betEven()
+
+    console.log("Next round started")
 }
