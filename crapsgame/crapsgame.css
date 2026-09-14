@@ -1,0 +1,247 @@
+:root{
+    --width-scale: min(830px, 80vw, 80vh);
+    --height-scale: calc(var(--width-scale) * 0.542);
+    --game-title-size: calc(var(--height-scale) * 0.1);
+    --title-margin-bottom: calc(var(--height-scale) * 0.25);
+}
+
+#craps-game{
+    background-image: url('../Images/crapsgamebg.jpg');
+    background-position: center top;
+    background-size: cover;
+    color: white;
+    padding: 1px;
+}
+
+.craps-game-title{
+    font-size: var(--game-title-size);
+    text-align: center;
+    margin-top: calc(calc(100vh - var(--game-title-size) - var(--title-margin-bottom) - var(--height-scale)) / 2);
+    margin-bottom: var(--title-margin-bottom);
+}
+
+.craps-game-container{
+    width: var(--width-scale);
+    height: var(--height-scale);
+    border: solid white 2px;
+    margin: 0 auto;
+    background-image: url(../Images/crapsgametable.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+#craps-registration-pane{
+    color: whitesmoke;
+    text-align: center;
+    margin-top: calc(var(--height-scale) * 0.15);
+    font-size: calc(var(--game-title-size) * 0.5);
+}
+
+.craps-registration-input{
+    background: none;
+    border: none;
+    border-bottom: solid white 2px;
+    margin: calc(var(--height-scale) * 0.05) 0;
+    color: white;
+    text-align: center;
+    font-size: calc(var(--game-title-size) * 0.5);
+}
+
+.craps-registration-input:focus{
+    outline: none;
+}
+
+.craps-registration-continue{
+    font-size: 12px;
+}
+
+.craps-registration-continue:hover{
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#craps-main-section {
+    display: none;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.craps-main-section-stats {
+    text-align: center;
+    font-size: calc(var(--height-scale) * 0.06);
+    margin-top: calc(var(--height-scale) * 0.08);
+}
+
+#craps-stats-money-container {
+    font-size: calc(var(--height-scale) * 0.1);
+    margin-top: calc(var(--height-scale) * 0.02);
+}
+
+
+/* DICE / TABLE AREA */
+
+.craps-on-table-container {
+    position: relative;
+    width: 100%;
+    height: calc(var(--height-scale) * 0.38);
+    margin-top: calc(var(--height-scale) * 0.01);
+    overflow: hidden;
+    text-align: center;
+}
+
+#craps-roll-dice-animation-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+}
+
+#craps-roll-dice-animation-container canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+}
+
+
+/* ROLL DICE BUTTON */
+
+#dice-container {
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin: calc(var(--height-scale) * 0.02) auto 0;
+    transform: translateY(-30px);
+    font-size: calc(var(--height-scale) * 0.058);
+    border: solid #fff 1px;
+    padding: 5px 16px;
+    border-radius: 8px;
+}
+
+#dice-container:hover {
+    cursor: pointer;
+    background-color: red;
+    
+}
+    
+
+/* RESULT */
+
+#dice-result {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 110;
+    font-size: calc(var(--height-scale) * 0.045);
+    display: none;
+}
+
+
+/* ROUND MANAGER */
+
+.craps-round-manager {
+    position: absolute;
+    left: 0;
+    bottom: calc(var(--height-scale) * 0.04);
+    width: 100%;
+    text-align: center;
+    font-size: calc(var(--height-scale) * 0.06);
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.craps-roll-dice-container {
+    width: fit-content;
+    margin: 0 auto;
+    color: white;
+}
+
+
+
+.craps-betting-grid {
+    display: grid;
+    grid-template-columns: 33% auto 33%;
+    width: 80%;
+    margin: 0 auto;
+    border: solid white 2px;
+    box-sizing: border-box;
+}
+
+.craps-bet-button {
+    padding: calc(var(--height-scale) * 0.04);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.craps-bet-amount-container {
+    padding: calc(var(--height-scale) * 0.04);
+    border-right: solid white 2px;
+    border-left: solid white 2px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#craps-user-bet-amount {
+    margin: 0 calc(var(--height-scale) * 0.04);
+}
+
+.craps-user-bet-amount-change {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.craps-round-finish-grid {
+    display: none;
+    grid-template-columns: 33% auto 33%;
+    width: 80%;
+    margin: 0 auto;
+    border: solid white 2px;
+    box-sizing: border-box;
+    align-items: stretch;
+    text-align: center;
+}
+
+.craps-round-finish-button {
+    padding: calc(var(--height-scale) * 0.04);
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    #craps-round-result {
+    padding: calc(var(--height-scale) * 0.04);
+
+    border-right: solid white 2px;
+    border-left: solid white 2px;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 100%;
+
+    box-sizing: border-box;
+    font-size: calc(var(--height-scale) * 0.06) !important;
+    font-weight: bold;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 1000;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    overflow: visible;
+
+}
