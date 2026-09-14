@@ -118,7 +118,16 @@
     width: fit-content;
     margin: calc(var(--height-scale) * 0.02) auto 0;
     transform: translateY(-30px);
-    font-size: calc(var(--height-scale) * 0.055);
+    font-size: calc(var(--height-scale) * 0.058);
+    border: solid #fff 1px;
+    padding: 5px 16px;
+    border-radius: 8px;
+}
+
+#dice-container:hover {
+    cursor: pointer;
+    background-color: red;
+    
 }
     
 
@@ -155,10 +164,7 @@
     color: white;
 }
 
-.craps-roll-dice-container:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
+
 
 .craps-betting-grid {
     display: grid;
