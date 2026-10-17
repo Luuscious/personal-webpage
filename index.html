@@ -4,7 +4,8 @@
 	<link rel="stylesheet" href="./crapsgame/crapsgame.css">
 	<link rel="stylesheet" href="./aboutme-section/aboutme.css">
 	<link rel="stylesheet" href="./crapsgame/utilities.css">
-	<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&" rel="stylesheet">
+	<link rel="stylesheet" href="./randomQuoteGenerator/randomQuoteGenerator.css">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -105,9 +106,10 @@
 	</div>
 
 	<div class="mainsection" id="random-quote-generator">
-		<div>Quote: <div id="random-quote-text"></div></div>
-		<div>Author: <div id="random-quote-author"></div></div>
-		<div onclick="getNewRandomQuote()">New quote</div>
+		<div id="random-quote-title">RANDOM QUOTE GENERATOR</div>
+		<div id="random-quote-text"></div>
+		<div id="random-quote-author"></div>
+		<div id="new-random-quote" onclick="getNewRandomQuote()">NEW QUOTE</div>
 	</div>
 </body>
 </html>
