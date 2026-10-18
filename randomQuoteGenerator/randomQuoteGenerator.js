@@ -43,28 +43,23 @@ const colors = [
     ["#6F4E37", "#FFF8E7"]
 ];
 
-function getNewRandomQuote() {
-   fetch('https://quotes.domi.my.id/api')
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        const colorCombos = colors[
-            Math.floor(Math.random() * colors.length)
-        ]
-        randomQuoteGeneratorElement.style.background =  `linear-gradient(135deg, ${colorCombos[0]}, ${colorCombos[1]})`
-        const quoteText = data.quote
-        const quoteAuthor = data.from
+async function getNewRandomQuote() {
+    const response = await fetch('https://quotes.domi.my.id/api')
+    if (!response.ok) {
+        alert('There was a problem getting a new quote!');
+    }
+    const data = await response.json()
+    
+    const quoteText = data.quote
+    const quoteAuthor = data.from
 
-        document.getElementById('random-quote-text').innerHTML = quoteText
-        document.getElementById('random-quote-author').innerHTML = quoteAuthor
-    })
-    .catch(error => {
-        alert('There was a problem getting a new quote!')
-    });
+    document.getElementById('random-quote-text').innerHTML = quoteText
+    document.getElementById('random-quote-author').innerHTML = quoteAuthor
+
+    const colorCombos = colors[
+        Math.floor(Math.random() * colors.length)
+    ]
+    randomQuoteGeneratorElement.style.background =  `linear-gradient(135deg, ${colorCombos[0]}, ${colorCombos[1]})`
 }
 
 getNewRandomQuote();
