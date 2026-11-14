@@ -113,13 +113,8 @@
 	</div>
 
 	<div class="mainsection" id="stock-analysis-dashboard">
-		<div id="stock-analysis-dashboard-title">STOCK ANALYSIS DASHBOARD</div>
-		<div id="stock-analysis-dashboard-subtitle">
-			Put in a Stock symbol you would like to analyze(e.g MSFT)
-		</div>
-		<input id="stock-analysis-dashboard-input" type="text">
-		<button class="stock-analysis-dashboard-button" onclick='analyzeStock()'>Analyze</button>
-		<div id="stock-analysis-dashboard-data"></div>
+    <div id="root"></div>
+		
 	</div>
 </body>
 </html>
@@ -162,6 +157,8 @@
 <script type="module" src="./src/crapsgame/script.js"></script>
 <script src="./src/stockAnalysisDashboard/stockAnalysisDashboard.js"></script>
 <script src="./src/randomQuoteGenerator/randomQuoteGenerator.js" defer></script>
+<script type="module" src="./src/main.tsx"></script>
+
 <script>
 	function makeDreamComeThrough() {
 		alert("Dream has come througgh")
