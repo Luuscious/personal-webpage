@@ -1,11 +1,14 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 // import './App.css'
+import { analyzeStock } from "./stockAnalysisDashboard"
 
 function stockAnalysisDashboard() {
-//   const [count, setCount] = useState(0)
+const [stockData, setStockData] = useState()
+const [stockSymbol, setStockSymbol] = useState('');
 
   async function runStockAnalysis() {
-    alert("function called!")
+    const getStockData = await analyzeStock(stockSymbol)
+    setStockData(getStockData)
   }
 
   return (
@@ -17,10 +20,15 @@ function stockAnalysisDashboard() {
                 <div id="stock-analysis-dashboard-subtitle">
                     Put in a Stock symbol you would like to analyze(e.g MSFT)
                 </div>
-                <input id="stock-analysis-dashboard-input" type="text"></input>
+                <input
+                value={stockSymbol}
+                onChange={e => setStockSymbol(e.target.value)}
+                ></input>
                 <button className="stock-analysis-dashboard-button" onClick={() => runStockAnalysis()}
                 >Analyze</button>
-                <div id="stock-analysis-dashboard-data"></div>
+                <div>
+                    {JSON.stringify(stockData)}
+                </div>
             </div>
                 
             {/* <button
