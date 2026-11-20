@@ -1,7 +1,11 @@
 import { useState } from 'react'
 // import './App.css'
-import { analyzeStock } from "./stockAnalysisDashboard"
+import { analyzeStock,
+         VerticalAlignContainer,
+         VerticalAlignContent 
+        } from "./stockAnalysisDashboard"
 import { DNA } from 'react-loader-spinner'
+import './stockAnalysisDashboard.css'
 
 
 function stockAnalysisDashboard() {
@@ -29,16 +33,20 @@ function goBack(){
 
     if (gotData) {
         return (
-            <div>
-                <div onClick={() => goBack()}>Back</div>
-                <div>{JSON.stringify(stockData)}</div>
-            </div>
+            <VerticalAlignContainer>
+                <VerticalAlignContent>
+                    <div>
+                        <div onClick={() => goBack()}>Back</div>
+                        <div>{JSON.stringify(stockData)}</div>
+                    </div>
+                </VerticalAlignContent>
+            </VerticalAlignContainer>
         )
     }
 
   return (
-    <>
-        <section id="center">
+    <VerticalAlignContainer>
+        <VerticalAlignContent>
             <h1>Get started with Stock Analysis</h1>
             <div>
                 <div id="stock-analysis-dashboard-title">STOCK ANALYSIS DASHBOARD</div>
@@ -68,17 +76,8 @@ function goBack(){
                     </div>
                 )}
             </div>
-                
-            {/* <button
-                type="button"
-                className="counter"
-                onClick={() => setCount((count) => count + 1)}
-                >
-                Count is {count}
-            </button> */}
-        </section>
-      <div className="ticks"></div>
-    </>
+        </VerticalAlignContent>
+    </VerticalAlignContainer>
   )
 }
 
