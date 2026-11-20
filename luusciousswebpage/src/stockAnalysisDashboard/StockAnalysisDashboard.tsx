@@ -6,6 +6,7 @@ import { analyzeStock,
         } from "./stockAnalysisDashboard"
 import { DNA } from 'react-loader-spinner'
 import './stockAnalysisDashboard.css'
+import DashboardGrid from './dashboardgrid'
 
 
 function stockAnalysisDashboard() {
@@ -37,7 +38,12 @@ function goBack(){
                 <VerticalAlignContent>
                     <div>
                         <div onClick={() => goBack()}>Back</div>
-                        <div>{JSON.stringify(stockData)}</div>
+                        <div>
+                            <DashboardGrid
+                                stockData={stockData}
+                            ></DashboardGrid>
+                            {/* {JSON.stringify(stockData)} */}
+                        </div>
                     </div>
                 </VerticalAlignContent>
             </VerticalAlignContainer>
