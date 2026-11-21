@@ -2,7 +2,8 @@ import { useState } from 'react'
 // import './App.css'
 import { analyzeStock,
          VerticalAlignContainer,
-         VerticalAlignContent 
+         VerticalAlignContent,
+         DashboardGridContainer
         } from "./stockAnalysisDashboard"
 import { DNA } from 'react-loader-spinner'
 import './stockAnalysisDashboard.css'
@@ -36,15 +37,17 @@ function goBack(){
         return (
             <VerticalAlignContainer>
                 <VerticalAlignContent>
-                    <div>
-                        <div onClick={() => goBack()}>Back</div>
+                    <DashboardGridContainer>
                         <div>
-                            <DashboardGrid
-                                stockData={stockData}
-                            ></DashboardGrid>
-                            {/* {JSON.stringify(stockData)} */}
+                            <div onClick={() => goBack()}>Back</div>
+                            <div>
+                                <DashboardGrid
+                                    stockData={stockData}
+                                ></DashboardGrid>
+                                {/* {JSON.stringify(stockData)} */}
+                            </div>
                         </div>
-                    </div>
+                    </DashboardGridContainer>
                 </VerticalAlignContent>
             </VerticalAlignContainer>
         )
