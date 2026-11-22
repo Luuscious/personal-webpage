@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { GridStack } from "gridstack";
 import "gridstack/dist/gridstack.css";
 import { DashboardGridContent } from "./stockAnalysisDashboard";
+import NumberStat from "./numberStat";
+
+
 
 function DashboardGrid({stockData}:{stockData: any}) {
     useEffect(() => {
@@ -14,26 +17,38 @@ function DashboardGrid({stockData}:{stockData: any}) {
                 {/* First Row */}
                 <div className="grid-stack-item" gs-w="3">
                     <DashboardGridContent className="grid-stack-item-content">
-                         <div>{stockData.basicInfo.marketCap}</div>
-                         <div>Market cap</div>
+                        <NumberStat
+                         value={stockData.basicInfo.marketCap}
+                         label='Market Cap'
+                         center={true}
+                        ></NumberStat>
                     </DashboardGridContent> 
                 </div>
                 <div className="grid-stack-item" gs-w="3">
                     <DashboardGridContent className="grid-stack-item-content">
-                        <div>{stockData.basicInfo.fullTimeEmployees}</div>
-                        <div>Employees</div>
+                        <NumberStat
+                         value={stockData.basicInfo.fullTimeEmployees}
+                         label='Employees'
+                         center={true}
+                         ></NumberStat>
                     </DashboardGridContent>
                 </div>
                 <div className="grid-stack-item" gs-w="3">
                     <DashboardGridContent className="grid-stack-item-content">
-                        <div>{stockData.basicInfo.totalRevenue}</div>
-                        <div>Total Revenue</div>
+                        <NumberStat
+                         value={stockData.basicInfo.totalRevenue}
+                         label='Total Revenue'
+                         center={true}
+                         ></NumberStat>
                     </DashboardGridContent>
                 </div>
                 <div className="grid-stack-item" gs-w="3">
                     <DashboardGridContent className="grid-stack-item-content">
-                        <div>{stockData.basicInfo.trailingEps}</div>
-                        <div>Earning Per Share</div>
+                        <NumberStat
+                         value={stockData.basicInfo.trailingEps}
+                         label='Earnings Per Share'
+                         center={true}
+                         ></NumberStat>
                     </DashboardGridContent>
                 </div>
             </div>
