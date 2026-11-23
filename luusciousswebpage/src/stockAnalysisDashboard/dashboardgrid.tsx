@@ -5,7 +5,7 @@ import { DashboardGridContent } from "./stockAnalysisDashboard";
 import NumberStat from "./numberStat";
 import LineChartContent from "./lineChartContent";
 import NewsLinks from "./newsLinks";
-
+import SentimentChart from "./sentimentChart";
 
 function DashboardGrid({stockData}:{stockData: any}) {
     useEffect(() => {
@@ -82,6 +82,18 @@ function DashboardGrid({stockData}:{stockData: any}) {
                                 maxItems={5}
                                 newsPageLink="https://your-news-page.com"
                             />
+                    </DashboardGridContent>
+                </div>
+
+                {/* fourth Row */}
+                <div className="grid-stack-item" gs-w="6" gs-h="3">
+                    <DashboardGridContent className="grid-stack-item-content">
+                        <SentimentChart
+                            positive={65}
+                            negative={20}
+                            neutral={15}
+                            newsTextAnalysis={stockData.newsTextAnalysis}
+                        />
                     </DashboardGridContent>
                 </div>
             </div>
