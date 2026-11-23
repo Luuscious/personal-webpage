@@ -11,7 +11,7 @@ function DashboardGrid({stockData}:{stockData: any}) {
     useEffect(() => {
         GridStack.init();
     }, []);
-
+    
     return (
         <div>
             <div className="grid-stack">
@@ -59,6 +59,18 @@ function DashboardGrid({stockData}:{stockData: any}) {
                         <LineChartContent 
                             priceHistory={stockData.priceHistory}>
                         </LineChartContent>
+                    </DashboardGridContent>
+                </div>
+                <div className="grid-stack-item" gs-w="2" gs-h="2">
+                    <DashboardGridContent className="grid-stack-item-content">
+                        <div>
+                                <div style={{marginBottom: '10px'}}>Future Earnings</div>
+                            {stockData.futureEarningsDates.map((nextDate: string) => (
+                                <div key={nextDate} style={{ display: 'block' }}>
+                                    {nextDate}
+                                </div>
+                            ))} 
+                        </div>     
                     </DashboardGridContent>
                 </div>
             </div>
