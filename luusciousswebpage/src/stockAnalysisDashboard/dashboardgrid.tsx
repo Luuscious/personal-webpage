@@ -4,7 +4,7 @@ import "gridstack/dist/gridstack.css";
 import { DashboardGridContent } from "./stockAnalysisDashboard";
 import NumberStat from "./numberStat";
 import LineChartContent from "./lineChartContent";
-
+import NewsLinks from "./newsLinks";
 
 
 function DashboardGrid({stockData}:{stockData: any}) {
@@ -71,6 +71,17 @@ function DashboardGrid({stockData}:{stockData: any}) {
                                 </div>
                             ))} 
                         </div>     
+                    </DashboardGridContent>
+                </div>
+
+                {/* Third Row */}
+                <div className="grid-stack-item" gs-w="6" gs-h="3">
+                    <DashboardGridContent className="grid-stack-item-content">
+                            <NewsLinks
+                                newsLinks={stockData.newsArticles}
+                                maxItems={5}
+                                newsPageLink="https://your-news-page.com"
+                            />
                     </DashboardGridContent>
                 </div>
             </div>
