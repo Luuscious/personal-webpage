@@ -96,6 +96,29 @@ function DashboardGrid({stockData}:{stockData: any}) {
                         />
                     </DashboardGridContent>
                 </div>
+
+                {/* fourth Row */}
+                <div className="grid-stack-item" gs-w="2" gs-h="2">
+                    <DashboardGridContent className="grid-stack-item-content">
+                        <a
+                        href={stockData.wordCloudUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download="stock-news-wordcloud.png"
+                    >
+                        <img
+                            src={stockData.wordCloudUrl}
+                            alt="Stock news word cloud"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                cursor: 'pointer'
+                            }}
+                        />
+                    </a>
+                    </DashboardGridContent>
+                </div>
             </div>
 
         </div>

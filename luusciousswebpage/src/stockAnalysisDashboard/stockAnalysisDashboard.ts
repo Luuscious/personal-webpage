@@ -18,6 +18,8 @@ export async function analyzeStock(stockSymbolToAnalyze: string){
     }
 
     const data = await response.json()
+    console.log(data.wordCloudUrl);
+
     return data
 }
 
